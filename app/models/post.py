@@ -11,7 +11,7 @@ class PostTable(IdMixin, TimestampMixin, Base):
 
     title: Mapped[str] = mapped_column(String(100))
     body: Mapped[str] = mapped_column(Text)
-    tags: Mapped[str] = mapped_column(String(200))
+    tags: Mapped[str] = mapped_column(String(200), nullable=True)
     likes: Mapped[int] = mapped_column(Integer, default=0)
     dislikes: Mapped[int] = mapped_column(Integer, default=0)
     views: Mapped[int] = mapped_column(Integer, default=0)
