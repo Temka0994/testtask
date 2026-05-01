@@ -11,7 +11,7 @@ class UserTable(IdMixin, TimestampMixin, Base):
 
     first_name: Mapped[str] = mapped_column(String(50))
     last_name: Mapped[str] = mapped_column(String(50))
-    maiden_name: Mapped[str] = mapped_column(String(50))
+    maiden_name: Mapped[str] = mapped_column(String(50), nullable=True)
     age: Mapped[int] = mapped_column(Integer)
     gender: Mapped[str] = mapped_column(String(50))
     email: Mapped[str] = mapped_column(String(50), unique=True)
