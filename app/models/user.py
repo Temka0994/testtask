@@ -18,4 +18,4 @@ class UserTable(IdMixin, TimestampMixin, Base):
     phone: Mapped[str] = mapped_column(String(50))
     country: Mapped[str] = mapped_column(String(50))
 
-    posts: Mapped[list["PostTable"]] = relationship(back_populates="users")
+    posts: Mapped[list["PostTable"]] = relationship(back_populates="user")

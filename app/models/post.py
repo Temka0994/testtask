@@ -15,6 +15,8 @@ class PostTable(IdMixin, TimestampMixin, Base):
     likes: Mapped[int] = mapped_column(Integer, default=0)
     dislikes: Mapped[int] = mapped_column(Integer, default=0)
     views: Mapped[int] = mapped_column(Integer, default=0)
-    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"))
+    user_id: Mapped[int | None] = mapped_column(
+        Integer, ForeignKey("users.id"), nullable=True
+    )
 
-    users: Mapped[list["UserTable"]] = relationship(back_populates="posts")
+    user: Mapped["UserTable | None"] = relationship(back_populates="posts")
