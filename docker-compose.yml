@@ -12,6 +12,11 @@ services:
       - postgresql_data:/var/lib/postgresql
     networks:
       - test_task_network
+    healthcheck:
+      test: [ "CMD-SHELL", "sh -c 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}'" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   app:
     build:
@@ -24,6 +29,9 @@ services:
     working_dir: /app
     networks:
       - test_task_network
+    depends_on:
+      postgresql:
+        condition: service_healthy
 
   client:
     container_name: test_task_frontend
