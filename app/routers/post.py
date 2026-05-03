@@ -24,10 +24,10 @@ async def get_posts_by_user(
     return await service.get_posts_by_user(user_id)
 
 
-@router.get("/get/{post_id}", response_model=PostOut)
+@router.get("/get/{post_id}", response_model=PostOut | None)
 async def get_post_by_id(
     post_id: int, service: PostService = Depends(get_post_service)
-) -> PostOut:
+) -> PostOut | None:
     return await service.get_post_by_id(post_id)
 
 
