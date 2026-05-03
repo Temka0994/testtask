@@ -31,7 +31,7 @@ async def get_post_by_id(
     return await service.get_post_by_id(post_id)
 
 
-@router.post("/create/", response_model=PostOut)
+@router.post("/add/", response_model=PostOut)
 async def add_post(
     data: PostCreate, service: PostService = Depends(get_post_service)
 ) -> PostOut:

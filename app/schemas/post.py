@@ -8,7 +8,7 @@ class PostBase(BaseModel):
     likes: int = 0
     dislikes: int = 0
     views: int = 0
-    user_id: int
+    user_id: int | None = None
 
 
 class PostCreate(PostBase):
