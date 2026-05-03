@@ -21,7 +21,7 @@ export const useUsers = () => {
 
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const pageSize = 10;
+    const pageSize = 12;
 
     const [isModal, setIsModal] = useState(false);
     const [editUser, setEditUser] = useState<User | null>(null);

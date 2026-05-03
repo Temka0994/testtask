@@ -2,7 +2,7 @@ import { serverInstance } from "./axios";
 import { Post } from "../types/Post";
 import { PaginatedResponse } from "../types/Pagination";
 
-export const getPosts = async (page: number = 1, size: number = 10, sort_by?: string, sort_order?: string): Promise<PaginatedResponse<Post>> => {
+export const getPosts = async (page: number = 1, size: number = 12, sort_by?: string, sort_order?: string): Promise<PaginatedResponse<Post>> => {
     const response = await serverInstance.get("/post/get_all/", {
         params: { page, size, sort_by, sort_order }
     });
@@ -34,7 +34,7 @@ export const importPosts = async (): Promise<string> => {
     return response.data;
 }
 
-export const getPostsByUser = async (userId: number, page: number = 1, size: number = 10): Promise<PaginatedResponse<Post>> => {
+export const getPostsByUser = async (userId: number, page: number = 1, size: number = 12): Promise<PaginatedResponse<Post>> => {
     const response = await serverInstance.get(`/post/get_all_by_user/${userId}`, {
         params: { page, size }
     });
