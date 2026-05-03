@@ -7,13 +7,16 @@ interface ModalProps {
     children: React.ReactNode;
 }
 
-export default function Modal({ isOpen, title, children }: ModalProps) {
+export default function Modal({ isOpen, onClose, title, children }: ModalProps) {
     if (!isOpen) return null;
 
     return (
-        <div className="modal-window">
-            <div className="modal-content">
-                <h2>{title}</h2>
+        <div className="modal-window" onClick={onClose}>
+            <div className="modal-content" onClick={(event) => event.stopPropagation()}>
+                <div className="modal-header">
+                    <h2>{title}</h2>
+                    <button className="modal-close" onClick={onClose}>✕</button>
+                </div>
                 {children}
             </div>
         </div>

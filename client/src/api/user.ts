@@ -2,7 +2,7 @@ import { serverInstance } from "./axios";
 import { User } from "../types/User";
 import { PaginatedResponse } from "../types/Pagination";
 
-export const getUsers = async (page: number = 1, size: number = 10, sort_by?: string, sort_order?: string): Promise<PaginatedResponse<User>> => {
+export const getUsers = async (page: number = 1, size: number = 12, sort_by?: string, sort_order?: string): Promise<PaginatedResponse<User>> => {
     const response = await serverInstance.get("/user/get_all/", {
         params: { page, size, sort_by, sort_order }
     });
