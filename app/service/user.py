@@ -1,3 +1,4 @@
+import random
 import httpx
 from fastapi import HTTPException
 from fastapi_pagination import Page
@@ -24,7 +25,10 @@ class UserService:
         return user
 
     async def add_user(self, data) -> UserOut:
+        random_id = random.randint(10**8, 10**8 * 2)
+
         user = UserTable(
+            id=random_id,
             first_name=data.first_name,
             last_name=data.last_name,
             maiden_name=data.maiden_name,

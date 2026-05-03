@@ -1,7 +1,5 @@
 from pydantic import BaseModel, EmailStr, ConfigDict
 
-from app.schemas.post import PostOut
-
 
 class UserBase(BaseModel):
     first_name: str
@@ -31,6 +29,5 @@ class UserUpdate(BaseModel):
 
 class UserOut(UserBase):
     id: int
-    posts: list[PostOut] = []
 
     model_config = ConfigDict(from_attributes=True)
