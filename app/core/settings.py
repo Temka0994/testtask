@@ -10,6 +10,7 @@ class AppSettings(BaseAppSettings):
     host: str
     port: int
     reload: bool
+    cors_origins: list[str]
 
 
 class PostgresSettings(BaseAppSettings):

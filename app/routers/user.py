@@ -17,10 +17,10 @@ async def get_users(
     return await service.get_users(sort_by=sort_by, sort_order=sort_order)
 
 
-@router.get("/get/{user_id}/", response_model=UserOut)
+@router.get("/get/{user_id}/", response_model=UserOut | None)
 async def get_user(
     user_id: int, service: UserService = Depends(get_user_service)
-) -> UserOut:
+) -> UserOut | None:
     return await service.get_user_by_id(user_id)
 
 
